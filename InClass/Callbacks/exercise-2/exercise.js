@@ -63,6 +63,48 @@ const movies = [
 
 // create showMovies function
 
+function showMovies(arr) {
+  let allMoviesEl = document.getElementById("all-movies")
+  for (let i = 0; i < arr.length; i++) {
+    let titleAndDirec = document.createElement("p");
+    titleAndDirec.innerHTML = arr[i].title + " by " + arr[i].director;
+    allMoviesEl.appendChild(titleAndDirec);
+
+
+  }
+  let total = movies.length;
+  let pTotal = document.querySelector(".alert.alert-info");
+  pTotal.innerHTML = `Number of movies: ${total}`
+
+
+}
+
+function showMovies3000() {
+  setTimeout(showMovies(movies), 3000);
+}
+
+showMovies3000();
+// Create a new function called "addMovie"
+//- it receives a movie object as an argument - your can create a new object for your favorite movie following using the "myMovies" objects as a guide
+//- it adds the new movie to the list of movies after 2 seconds.Remember to setTimeout to achieve that
+// Call addMovies to add the new movie to the list and then showMovies to see the movies added on the screen.
+// How many movies can you see on your page ?
+let myFavoriteMovies = {
+  title: "Horror of JavaScript",
+  director: "Johnny Tripa",
+  type: "horror",
+  haveWatched: true,
+}
+
+function addMovie(obj) {
+  setTimeout(function () {
+    movies.push(obj);
+    showMovies([obj])
+  }, 2000)
+}
+
+addMovie(myFavoriteMovies);
+
 
 // create a new movie object for your favorite movie
 

@@ -11,3 +11,47 @@ Update your code to make the colour change every 5 seconds to something differen
 Prefer to work on a codepen? https://codepen.io/makanti/pen/abOreLg
 ================
 */
+
+
+// function changeColor(){
+//     setInterval(myCallback(), 1000);
+// }
+
+
+// function myCallback() {
+//     let arrColors = ['red', 'blue', 'green', 'brown', 'yellow'];
+//     let randomColor = Math.floor(Math.random() * arrColors.length);
+//     let mainEl = document.getElementById("main");
+//     mainEl.style.backgroundColor = randomColor;
+
+// }
+
+// changeColor();
+
+// var intervalID = window.setInterval(myCallback, 1000);
+
+// function myCallback() {
+//     let arrColors = ['red', 'blue', 'green', 'brown', 'yellow'];
+//     let randomColor = Math.floor(Math.random() * arrColors.length);
+//     let mainEl = document.getElementById("main");
+//     mainEl.style.backgroundColor = randomColor;
+// }
+
+
+
+// set(function () {
+//     let mainEl = document.getElementById("main");
+//     let arrColors = ['red', 'blue', 'green', 'brown', 'yellow'];
+//     let randomColor = Math.floor(Math.random() * arrColors.length);
+//     mainEl.style.backgroundColor = randomColor;
+// }, 5000)
+
+// setInterval();
+
+setInterval(function () {
+    let mainEl = document.getElementById("main");
+    let arrColors = ['red', 'blue', 'green', 'brown', 'yellow'];
+    let randomColor = arrColors[Math.floor(Math.random() * arrColors.length)];
+    mainEl.style.backgroundColor = randomColor;
+}, 3000);
+
