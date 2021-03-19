@@ -17,9 +17,7 @@
 // pickFromArray(coloursArray)  //maybe returns "#F38630"
 //
 // You DO NOT need to understand how this function works.
-function pickFromArray(choices) {
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+
 
 // A list of quotes you can use in your app.
 // Feel free to edit them, and to add your own favourites.
@@ -490,3 +488,21 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+
+
+function pickFromArray(choices) {
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+function createAQuote() {
+  targetDivEl = document.getElementById("targetDiv");
+  let pElement = document.createElement("p");
+  let pElementTwo = document.createElement("p");
+  pElement.innerHTML = pickFromArray(quotes).quote;
+  pElementTwo.innerHTML =pickFromArray(quotes).author;
+  targetDivEl.append(pElement, pElementTwo);
+
+}
+
+createAQuote();
+

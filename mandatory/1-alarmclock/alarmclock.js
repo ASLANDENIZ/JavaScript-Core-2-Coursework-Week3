@@ -2,10 +2,14 @@
 
 let timeLeft = document.getElementById("timeRemaining");
 
+let flashing;
+
+let countDown;
+
 function setAlarm() {
   let alarmSetValue = document.getElementById("alarmSet").value;
   convertTime(alarmSetValue);
-  let countDown = setInterval(() => {
+  countDown = setInterval(() => {
     alarmSetValue -= 1;
     console.log(alarmSetValue);
     convertTime(alarmSetValue);
@@ -13,16 +17,19 @@ function setAlarm() {
       playAlarm();
 
       clearInterval(countDown);
+      let colors = ['red', 'blue', 'green', 'brown', 'yellow'];
+      flashing = setInterval(function () {
+        let color = colors[Math.floor(Math.random() * colors.length)];
+        timeLeft.style.backgroundColor = color;
 
-      timeLeft.style.backgroundColor = "red";
-
-
+      }, 1000)
 
     }
   }, 1000);
 
-
 }
+
+
 
 function convertTime(sec) {
   let minutes = Math.floor(sec / 60);
@@ -32,7 +39,33 @@ function convertTime(sec) {
 }
 
 
+function stopFlashing() {
+  clearInterval(flashing);
+  console.log(flashing);
+  timeLeft.style.backgroundColor = "";
+  document.getElementById("alarmSet").value = "";
 
+
+}
+
+function pauseButton() {
+  let targetDiv = document.getElementById("targetDiv");
+  let buttonEl = document.createElement("button");
+  buttonEl.innerHTML = "PAUSE";
+  targetDiv.appendChild(buttonEl);
+  buttonEl.style.backgroundColor = "red";
+  buttonEl.addEventListener("click", function () {
+    clearInterval(countDown);
+
+
+
+
+
+  })
+
+}
+
+pauseButton();
 
 
 
@@ -51,6 +84,7 @@ function setup() {
 
   document.getElementById("stop").addEventListener("click", () => {
     pauseAlarm();
+    stopFlashing();
   });
 }
 
